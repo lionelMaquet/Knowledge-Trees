@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UserInterface.Views"
         mc:Ignorable="d"
         Title="Knowledge Trees - Main Dashboard" 
-        Height="450" 
+        Height="594" 
         Width="800" 
         WindowStartupLocation="CenterScreen" 
         Background="WhiteSmoke">
@@ -30,7 +30,19 @@
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="Margin" Value="0 0 0 30"/>
         </Style>
+
+        <Style x:Key="ButtonIcon" TargetType="Image">
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Margin" Value="10,10,10,10"/>
+        </Style>
+
+        <Style x:Key="TreeAndLeavesButtonTitles" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
     </Window.Resources>
+    
+    
 
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
@@ -52,9 +64,29 @@
 
         <!-- Trees Buttons -->
         <StackPanel Grid.Column="0" Grid.Row="1">
-            <Button x:Name="OpenCreateTreeWindow" Content="Create" Style="{StaticResource ButtonStyle}"/>
-            <Button Command="{Binding ViewTreeCommand}" Content="View" Style="{StaticResource ButtonStyle}"/>
-            <Button Command="{Binding DeleteTreeCommand}" Content="Delete" Style="{StaticResource ButtonStyle}"/>
+
+            <Button x:Name="OpenCreateTreeWindow" Style="{StaticResource ButtonStyle}">
+                <StackPanel>
+                    <Image Source="pack://application:,,,/Resources/create_tree.png" Style="{StaticResource ButtonIcon}" />
+                    <TextBlock Style="{StaticResource TreeAndLeavesButtonTitles}" >Create</TextBlock>
+                </StackPanel>
+            </Button>
+
+            <Button Command="{Binding ViewTreeCommand}" Style="{StaticResource ButtonStyle}">
+                <StackPanel>
+                    <Image Source="pack://application:,,,/Resources/view_tree.png" Style="{StaticResource ButtonIcon}" />
+                    <TextBlock Style="{StaticResource TreeAndLeavesButtonTitles}">View</TextBlock>
+                </StackPanel>
+            </Button>
+
+            <Button Command="{Binding DeleteTreeCommand}" Style="{StaticResource ButtonStyle}">
+                <StackPanel>
+                    <Image Source="pack://application:,,,/Resources/delete_tree.png" Style="{StaticResource ButtonIcon}" />
+                    <TextBlock Style="{StaticResource TreeAndLeavesButtonTitles}">Delete</TextBlock>
+                </StackPanel>
+            </Button>
+
+            
         </StackPanel>
 
         <!-- Trees List -->
@@ -65,12 +97,34 @@
 
         <!-- Leaves Buttons -->
         <StackPanel Grid.Column="3" Grid.Row="1">
-            <Button x:Name="OpenCreateLeafWindow" Content="Create" Style="{StaticResource ButtonStyle}"
-                    IsEnabled="{Binding CreateLeafButtonEnabled, NotifyOnSourceUpdated=True}"/>
-            <Button Command="{Binding ViewLeafCommand}" Content="View" Style="{StaticResource ButtonStyle}"
-                    IsEnabled="{Binding AddAndRemoveLeafButtonsEnabled, NotifyOnSourceUpdated=True}"/>
-            <Button Command="{Binding DeleteLeafCommand}" Content="Delete" Style="{StaticResource ButtonStyle}"
-                    IsEnabled="{Binding AddAndRemoveLeafButtonsEnabled, NotifyOnSourceUpdated=True}"/>
+            
+            <Button x:Name="OpenCreateLeafWindow" Style="{StaticResource ButtonStyle}"
+                    IsEnabled="{Binding CreateLeafButtonEnabled, NotifyOnSourceUpdated=True}">
+                <StackPanel>
+                 
+                    <Image Source="pack://application:,,,/Resources/create_leaf.png" Style="{StaticResource ButtonIcon}" />
+
+                    <TextBlock Style="{StaticResource TreeAndLeavesButtonTitles}">Create</TextBlock>
+                </StackPanel>
+            </Button>
+
+            <Button Command="{Binding ViewLeafCommand}" Style="{StaticResource ButtonStyle}"
+                    IsEnabled="{Binding AddAndRemoveLeafButtonsEnabled, NotifyOnSourceUpdated=True}">
+                <StackPanel>
+                    <Image Source="pack://application:,,,/Resources/view_leaf.png" Style="{StaticResource ButtonIcon}" />
+                    <TextBlock Style="{StaticResource TreeAndLeavesButtonTitles}">View</TextBlock>
+                </StackPanel>
+            </Button>
+
+            <Button Command="{Binding DeleteLeafCommand}" Style="{StaticResource ButtonStyle}"
+                    IsEnabled="{Binding AddAndRemoveLeafButtonsEnabled, NotifyOnSourceUpdated=True}">
+                <StackPanel>
+                    <Image Source="pack://application:,,,/Resources/delete_leaf.png" Style="{StaticResource ButtonIcon}" />
+                    <TextBlock Style="{StaticResource TreeAndLeavesButtonTitles}">Delete</TextBlock>
+                </StackPanel>
+            </Button>
+
+            
         </StackPanel>
 
         <!-- Leaves List -->

@@ -181,7 +181,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\create_leaf.png" />
+    <Resource Include="Resources\create_tree.png" />
+    <Resource Include="Resources\delete_leaf.png" />
+    <Resource Include="Resources\delete_tree.png" />
+    <Resource Include="Resources\view_leaf.png" />
+    <Resource Include="Resources\view_tree.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Services\KnowledgeTrees.Services.csproj">
       <Project>{192D83C7-AE1E-4798-9079-3216910F32F0}</Project>

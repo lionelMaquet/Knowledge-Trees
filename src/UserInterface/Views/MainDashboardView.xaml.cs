@@ -22,6 +22,7 @@ namespace UserInterface.Views
         public MainDashboardView()
         {
             InitializeComponent();
+            this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
         }
     }
 }
