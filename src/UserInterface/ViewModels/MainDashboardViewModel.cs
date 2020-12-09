@@ -44,10 +44,12 @@ namespace UserInterface.ViewModels
             }
         }
 
+        internal string DefaultLeavesHeaderTitle = "Leaves list";
+
         private string _selectedTree;
         public string SelectedTree
         {
-            get { return _selectedTree; }
+            get { return _selectedTree ?? DefaultLeavesHeaderTitle; }
             set
             {
                 _selectedTree = value;
@@ -187,7 +189,7 @@ namespace UserInterface.ViewModels
         {
             Leaves = new ObservableCollection<string>();
 
-            if (SelectedTree != null)
+            if (SelectedTree != null && SelectedTree != DefaultLeavesHeaderTitle)
             {
                 var treePath = DirectoryConstants.CurrentWorkingPath + $@"\{SelectedTree}";
                 var leaves = _folderLogicHandler.GetAllLeafNamesWithNoExtension(treePath);
